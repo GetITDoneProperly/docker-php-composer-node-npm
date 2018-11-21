@@ -31,3 +31,8 @@ RUN curl -sL https://deb.nodesource.com/setup_8.x \
 			-o nodesource_setup.sh \
 	&& bash nodesource_setup.sh \
 	&& apt-get -y install nodejs
+
+RUN composer global require drupal/coder \
+    && phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+
+RUN npm install -g gulp-cli grunt-cli
